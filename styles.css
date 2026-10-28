@@ -36,6 +36,10 @@
   --c-muted: var(--fg-muted);
   --c-accent: #ffcc00;
   --container-max: 1200px;
+
+  --fs-body: clamp(1rem, 0.94rem + 0.5vw, 1.125rem);
+  --fs-h2: clamp(1.25rem, 1.05rem + 1.2vw, 1.6rem);
+  --fs-h1: clamp(1.6rem, 1.2rem + 2.2vw, 2.2rem);
 }
 
 html {
@@ -44,6 +48,7 @@ html {
 
 body {
   margin: 0;
+  font-size: var(--fs-body);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--fg);
   background: var(--bg);
@@ -88,14 +93,15 @@ ol[class] {
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    "header header"
-    "sidenav main"
-    "footer footer";
-  min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "sidenav"
+        "main"
+        "footer";
+    min-height: 100dvh;
 }
 
 .header  { grid-area: header; }
@@ -111,7 +117,7 @@ ol[class] {
 .header__title {
   margin: 0;
   padding: var(--space-4) var(--space-6) 0 var(--space-6);
-  font-size: 1.5rem;
+  font-size: var(--fs-h1);
   color: var(--brand);
 }
 
@@ -194,14 +200,9 @@ ol[class] {
   margin-inline: auto;
 }
 
-.main__title {
+.main__title, .news__title {
   margin: 0 0 var(--space-6);
-  font-size: 1.6rem;
-}
-
-.news__title {
-  margin: 0 0 var(--space-4);
-  font-size: 1.6rem;
+  font-size: var(--fs-h2);
 }
 
 .news__list {
@@ -272,6 +273,8 @@ ol[class] {
 
 .media {
   margin: var(--space-6) 0;
+  aspect-ratio: 16 / 9;
+  overflow: clip;
 }
 
 .media--framed {
@@ -284,7 +287,9 @@ ol[class] {
 .media__img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-1);
 }
 
@@ -297,7 +302,7 @@ ol[class] {
 
 .about-article__title {
   margin: 0 0 var(--space-3);
-  font-size: 1.5rem;
+  font-size: var(--fs-h2);
 }
 
 .about-article__text {
@@ -416,16 +421,18 @@ ol[class] {
 }
 
 .footer__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
-  max-width: var(--container);
-  margin: 0 auto;
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+    align-items: start;
+    max-width: var(--container);
+    margin: 0 auto;
 }
 
 .footer__text {
   margin: 0;
   font-size: .95rem;
+  order: 2;
 }
 
 .footer__group-name {
@@ -433,31 +440,53 @@ ol[class] {
   font-weight: 700;
 }
 
-.services__title {
-  margin: 0 0 var(--space-3);
-  font-size: 1.25rem;
+@media (min-width: 640px) {
+    .layout {
+        grid-template-columns: 220px 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "sidenav main"
+            "footer footer";
+    }
+    .footer__inner {
+        grid-template-columns: 1fr minmax(220px, 1fr);
+    }
+    .footer__text {
+        order: initial; 
+    }
 }
 
-.services__table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-1);
-  overflow: hidden;
+@media (min-width: 1024px) {
+    .layout {
+        grid-template-columns: 280px 1fr; 
+    }
+    .footer__inner {
+        grid-template-columns: 1fr minmax(280px, 1fr);
+    }
 }
 
-.services__header,
-.services__cell {
-  padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--border);
-}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1020;
+    --surface: #101528;
+    --fg: #e7eaf3;
+    --fg-muted: #b7bfd3;
+    --border: #232a3b;
+    --brand: #7fb3ff;
+    --brand-600: #6aa2f0;
+    --brand-100: #17233b;
+  }
 
-.services__header {
-  background: #f7f7f9;
-  text-align: left;
-  font-weight: 600;
-}
+  .sidenav, .sidebar {
+    background: var(--surface) !important;
+  }
+  
+  .sidebar--links, .sidebar--values, .sidebar--social {
+    background: var(--surface) !important;
+  }
 
-.services__row:nth-child(even) .services__cell {
-  background: #fcfcfc;
+  .news-card__meta {
+    background: color-mix(in srgb, var(--surface) 92%, #fff 8%);
+  }
 }
