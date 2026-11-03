@@ -1,0 +1,40 @@
+.main {
+  padding: var(--space-6);
+  max-width: var(--container);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.main__title, .news__title {
+  margin: 0 0 var(--space-6);
+  font-size: var(--fs-h2);
+}
+
+.news__list {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.about-article__title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--fs-h2);
+}
+
+.about-article__text {
+  margin: 0 0 var(--space-6);
+}
+
+.skills__title {
+  margin: 0 0 var(--space-3);
+  font-size: 1.25rem;
+}
+
+.skills__list {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.skills__item {
+  color: var(--fg);
+}
