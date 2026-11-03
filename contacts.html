@@ -1,63 +1,22 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Контактна інформація та форма зворотного зв'язку." />
-  <title>Лабораторна 3 - Контакти</title>
-  <link rel="icon" href="assets/images/favicon.ico" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+{{#> layout pageTitle="Контакти" studentGroup="6.1214-пі-1" studentEmail="test@email" }}
+  <h2 class="main__title">Зв'яжіться з нами</h2>
 
-  <a class="skip-link" href="#main">Перейти до основного контенту</a>
+  <form class="contact-form" action="#" method="post">
+    <div class="contact-form__item">
+      <label for="name" class="contact-form__label">Ім'я</label>
+      <input type="text" id="name" name="name" class="contact-form__input" required placeholder="Ваше ім'я" />
+    </div>
 
-  <header class="header">
-    <h1 class="header__title">Мій перший лендінг</h1>
-    <nav class="navigation" aria-label="Головна навігація">
-      <ul class="navigation__list">
-        <li class="navigation__item"><a href="index.html" class="navigation__link">Головна</a></li>
-        <li class="navigation__item"><a href="about.html" class="navigation__link">Про нас</a></li>
-        <li class="navigation__item"><a href="contacts.html" class="navigation__link" aria-current="page">Контакти</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="contact-form__item">
+      <label for="email" class="contact-form__label">Email</label>
+      <input type="email" id="email" name="email" class="contact-form__input" required placeholder="Ваш email" />
+    </div>
 
-  <main class="main">
-    <h2 class="main__title">Зв'яжіться з нами</h2>
+    <div class="contact-form__item">
+      <label for="msg" class="contact-form__label">Повідомлення</label>
+      <textarea id="msg" name="msg" class="contact-form__textarea" placeholder="Ваше повідомлення"></textarea>
+    </div>
 
-    <form class="contact-form" action="#" method="post">
-      <div class="contact-form__item">
-        <label for="name" class="contact-form__label">Ім'я</label>
-        <input type="text" id="name" name="name" class="contact-form__input" required placeholder="Ваше ім'я" />
-      </div>
-
-      <div class="contact-form__item">
-        <label for="email" class="contact-form__label">Email</label>
-        <input type="email" id="email" name="email" class="contact-form__input" required placeholder="Ваш email" />
-      </div>
-
-      <div class="contact-form__item">
-        <label for="msg" class="contact-form__label">Повідомлення</label>
-        <textarea id="msg" name="msg" class="contact-form__textarea" placeholder="Ваше повідомлення"></textarea>
-      </div>
-
-      <button type="submit" class="contact-form__button">Надіслати</button>
-    </form>
-  </main>
-
-  <aside class="sidebar sidebar--social" aria-label="Соціальні мережі">
-    <h3 class="sidebar__title">Соціальні мережі</h3>
-    <ul class="sidebar__list">
-      <li class="sidebar__item"><a href="#" class="sidebar__link">Facebook</a></li>
-      <li class="sidebar__item"><a href="#" class="sidebar__link">Instagram</a></li>
-      <li class="sidebar__item"><a href="#" class="sidebar__link">LinkedIn</a></li>
-    </ul>
-  </aside>
-
-  <footer class="footer">
-    <p class="footer__text">© 2026 Група <span class="footer__group-name">6.1214-пі-1</span></p>
-  </footer>
-
-</body>
-</html>
+    <button type="submit" class="contact-form__button">Надіслати</button>
+  </form>
+{{/layout }}
