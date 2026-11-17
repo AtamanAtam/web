@@ -22,3 +22,96 @@
     background: color-mix(in srgb, var(--surface) 92%, #fff 8%);
   }
 }
+
+html.dark {
+  --bg: #0b1020;
+  --surface: #101528;
+  --fg: #e7eaf3;
+  --fg-muted: #b7bfd3;
+  --border: #232a3b;
+  --brand: var(--color-brand-500);
+  --brand-600: var(--color-brand-600);
+  --brand-100: var(--color-brand-100);
+}
+
+html.dark body {
+  background-color: var(--bg) !important;
+  color: var(--fg) !important;
+}
+
+html.dark .layout {
+  background-color: var(--bg) !important;
+}
+
+html.dark .header {
+  background: var(--surface) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+html.dark .sidenav,
+html.dark .sidebar {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark .sidebar--links,
+html.dark .sidebar--values,
+html.dark .sidebar--social {
+  background: var(--surface) !important;
+}
+
+html.dark .card,
+html.dark .news-card,
+html.dark .employee-card {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--fg) !important;
+}
+
+html.dark .news-card__meta {
+  background: color-mix(in srgb, var(--surface) 92%, #fff 8%) !important;
+  border-top-color: var(--border) !important;
+}
+
+html.dark .news-card__title,
+html.dark .news-card__excerpt,
+html.dark .news-card__date {
+  color: var(--fg) !important;
+}
+
+html.dark .nav__link {
+  color: var(--fg) !important;
+}
+
+html.dark .nav__link:hover {
+  color: var(--accent, #7fb3ff) !important;
+}
+
+html.dark .contact-form {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+
+html.dark .contact-form__input,
+html.dark .contact-form__textarea {
+  background: #1a2035 !important;
+  color: var(--fg) !important;
+  border-color: var(--border) !important;
+}
+
+.dark body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.dark .layout {
+  background-color: var(--bg);
+}
+
+.dark .card,
+.dark .news-card,
+.dark .employee-card {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--fg);
+}
