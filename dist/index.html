@@ -3,21 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Лабораторна 7 - Головна</title>
-  <link rel="icon" href="/favicon.ico" />  <script type="module" crossorigin src="/assets/main-DFnIvFxJ.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/main-HZczT-Cq.js">
-  <link rel="stylesheet" crossorigin href="/assets/main-zwbYnQ3J.css">
+  <title> - Головна</title>
+  <link rel="icon" href="/favicon.ico" />  <script type="module" crossorigin src="/assets/index-COxtFJqb.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-lfrb6PPH.css">
 </head>
-<body>
+<body data-page="main">
   <div class="layout">
     <header class="header">
-      <h1 class="header__title">Лабораторна № 7</h1>
+      <h1 class="header__title"></h1>
       <nav class="nav">
         <a href="/index.html" class="nav__link">Головна</a>
         <a href="/about.html" class="nav__link">Про нас</a>
         <a href="/contacts.html" class="nav__link nav__link--cta">Контакти</a>
       </nav>
-    </header>    <aside class="sidenav">
+    </header>    <div class="header__top flex justify-between items-center border border-solid border-[color:var(--border)] p-2 space-x-6">
+      <nav class="nav flex space-x-4">
+        <a href="index.html" class="nav__link">Головна</a>
+        <a href="about.html" class="nav__link">Про нас</a>
+        <a href="contacts.html" class="nav__link">Контакти</a>
+      </nav>
+    
+      <button id="theme-toggle"
+        class="p-2 rounded-full bg-[color:var(--surface)] hover:bg-[color:var(--surface-alt)] text-[color:var(--text)] hover:text-[color:var(--accent)] transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)] cursor-pointer"
+        type="button"
+        aria-label="Переключити тему">
+        <svg id="sun-icon" class="h-8 w-8 block dark:hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707m12.728 0-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+        </svg>
+        <svg id="moon-icon" class="h-8 w-8 hidden dark:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+        </svg>
+      </button>
+    </div>    <aside class="sidenav">
       <section class="sidebar sidebar--links" aria-label="Корисні посилання">
         <h3 class="sidebar__title">Корисні посилання</h3>
         <ul class="sidebar__list">

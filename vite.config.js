@@ -1,27 +1,25 @@
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
 import handlebars from 'vite-plugin-handlebars';
 import tailwindcss from '@tailwindcss/vite';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        about: resolve(__dirname, 'about.html'),
-        contacts: resolve(__dirname, 'contacts.html'),
-      },
-    },
-  },
   plugins: [
     tailwindcss(),
     handlebars({
-      partialDirectory: resolve(__dirname, 'src/partials'),
       context: {
-        siteName: 'Лабораторна 7',
-        labName: 'Лабораторна № 7',
+        // Твой контекст, если есть
       },
-      reloadOnPartialChange: true,
+      partialDirectory: resolve(__dirname, 'src/partials'),
     }),
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'), // <--- ВОТ ЭТА СТРОКА
+    },
+  },
 });

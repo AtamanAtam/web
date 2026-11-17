@@ -3,15 +3,16 @@
 <head>
   {{> head pageTitle=pageTitle }}
 </head>
-<body>
+<body data-page="{{ pageCode }}">
   <div class="layout">
     {{> header }}
+    {{> nav }}
     {{> aside }}
     <main class="main">
       {{> @partial-block }}
     </main>
     {{> footer studentGroup=studentGroup studentEmail=studentEmail }}
   </div>
-  <script type="module" src="/src/main.js"></script>
+<script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
